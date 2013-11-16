@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="lv.elksnis.musoni" version="2.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <name>Musoni Tablet app</name>
+    <description>
+         Flexible native app to enable loan officers to carry out tasks such as client registration, business visits and loan applications in the field on tablets or smartphones.
+    </description>
+    <author email="reinis@elksnis.lv" href="http://musoni.com">
+        JP Morgan Code for good team #16
+    </author>
+    <content src="index.html" />
+    <feature name="App">
+        <param name="android-package" value="org.apache.cordova.App" />
+    </feature>
+	<feature name="File">
+		<param name="android-package" value="org.apache.cordova.FileUtils" />
+	</feature>
+	<feature name="FileTransfer">
+		<param name="android-package" value="org.apache.cordova.FileTransfer" />
+	</feature>
+    <access origin="http://127.0.0.1*" />
+    <preference name="useBrowserHistory" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="default" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
+</widget>
