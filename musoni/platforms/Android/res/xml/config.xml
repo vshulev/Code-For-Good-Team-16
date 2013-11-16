@@ -11,12 +11,12 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-	<feature name="File">
-		<param name="android-package" value="org.apache.cordova.FileUtils" />
-	</feature>
-	<feature name="FileTransfer">
-		<param name="android-package" value="org.apache.cordova.FileTransfer" />
-	</feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.FileUtils" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.FileTransfer" />
+    </feature>
     <access origin="http://127.0.0.1*" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />

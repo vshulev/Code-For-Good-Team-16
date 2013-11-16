@@ -23,14 +23,18 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>Musoni</title>
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/aes.js"></script>
         <script type="text/javascript" src="js/underscore-min.js"></script>
+		<script type="text/javascript" src="js/encryptor.js"></script>
     </head>
     <body>
         <div class="app">
             <h1>PhoneGap</h1>
+			<a href ='#' onClick='alert("hi")'>hi</a>
+			<a href ='#' onClick='window.e = new Encryptor("hamster"); window.a=e.encrypt({a:1}); alert(a)'>encrypt</a>
+			<a href ='#' onClick='var b=e.decrypt(a, "hamster"); alert(JSON.stringify(b))'>decrypt</a>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
