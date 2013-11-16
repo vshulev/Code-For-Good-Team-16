@@ -1,1 +1,1 @@
-coffee -c -o js/ src/
+coffee -c -bo js/ src/
