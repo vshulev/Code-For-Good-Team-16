@@ -3,6 +3,11 @@ class Model
         # check if the connection is available
         # if it us, use that
         # otherwise, worth offline
+        storeObj = @getStoreObject()
+        storeObj.formData = new Encryptor().encrypt( storeObj.formData )
+        @storeLocally( storeObj )
+        alert( 'No connection, stored localy!' )
+        window.app.back()
         #navigator.network.isReachable("phonegap.com", @reachableCallback, {})
 
     reachableCallback: (reachability) =>

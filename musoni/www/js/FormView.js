@@ -5,7 +5,7 @@ FormView = (function() {
   function FormView(model) {
     var _this = this;
     this.model = model;
-    window.ClientRegistrationSubmit = function() {
+    window.RegistrationSubmit = function() {
       return _this.submission();
     };
     window.GoNext = function() {

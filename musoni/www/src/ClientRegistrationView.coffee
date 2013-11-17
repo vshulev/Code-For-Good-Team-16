@@ -45,7 +45,7 @@ class ClientRegistrationView extends FormView
         form += UI.getLabel( 'county','County' )
         form += UI.getTextInput('county', @model.PersonalInformation.county )
         form += UI.nl()
-        form += UI.getSubmit( 'Submit', 'ClientRegistrationSubmit' )
+        form += UI.getSubmit( 'Submit', 'RegistrationSubmit' )
         form += UI.nl()
         form += '</div>'
         
