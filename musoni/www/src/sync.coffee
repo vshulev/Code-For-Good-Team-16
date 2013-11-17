@@ -54,7 +54,7 @@ class Sync
 		
 	send_data: -> # (action) ->
 		alert ("sync")
-		if navigator.network.isReachable("phonegap.com", @reachableCallback, {}) == NetworkStatus.NOT_REACHABLE
+		if navigator.connection.type == Connection.NONE
 			alert ("please connect to the internet before sync")
 		else
 			#@setBasicAuthKey()
