@@ -4,11 +4,35 @@ var App;
 App = (function() {
   function App() {
     this.mainRegion = $('#main-region');
+    this.statusStack = [];
+    this.currentModel = null;
     this.show(new OptionsView());
   }
 
   App.prototype.show = function(view) {
-    return this.mainRegion.html(view.render());
+    this.mainRegion.html(view.render());
+    return this.statusStack.push(view);
+  };
+
+  App.prototype.customerForm = function() {
+    this.currentModel = new FormModel();
+    return this.show(new CustomerFormView());
+  };
+
+  App.prototype.groupForm = function() {
+    this.currentModel = new FormModel();
+    return this.show(new GuestFormView());
+  };
+
+  App.prototype.submit = function() {
+    if (this.currentModel !== null) {
+      return currentModel.submit();
+    }
+  };
+
+  App.prototype.back = function() {
+    this.statusStack.pop();
+    return this.show(this.statusStack[this.statusStack.length - 1].render());
   };
 
   return App;
