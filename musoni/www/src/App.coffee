@@ -12,11 +12,11 @@ class App
 		@statusStack.push(view);
 
 	customerForm: ->
-		@currentModel = new FormModel()
+		@currentModel = new ClientModel()
 		@show( new ClientRegistrationView() )
 
 	groupForm: ->
-		@currentModel = new FormModel()
+		@currentModel = new GroupModel()
 		@show( new GuestFormView() )
 
 	back: ->
