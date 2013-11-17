@@ -6,12 +6,16 @@ App = (function() {
     this.mainRegion = $('#main-region');
     $('#back-region button').click();
     this.statusStack = [];
-    this.show(new OptionsView());
+    this.show(new LoginView());
   }
 
   App.prototype.show = function(view) {
     this.mainRegion.html(view.render());
     return this.statusStack.push(view);
+  };
+
+  App.prototype.optionsView = function() {
+    return this.show(new OptionsView());
   };
 
   App.prototype.customerForm = function() {
