@@ -6,8 +6,11 @@ ClientRegistrationView = (function() {
   function ClientRegistrationView(client) {
     var _this = this;
     this.client = client;
+    this.extractData = __bind(this.extractData, this);
     this.render = __bind(this.render, this);
-    this.client = {};
+    this.client = {
+      PersonalInformation: {}
+    };
     window.ClientRegistrationSubmit = function() {
       return _this.submission();
     };
@@ -21,26 +24,34 @@ ClientRegistrationView = (function() {
   ClientRegistrationView.prototype.render = function() {
     var form, options;
     form = UI.getLabel('firstName', 'First Name');
-    form += UI.getTextInput('firstName', this.client.firstName);
+    form += UI.getTextInput('firstName', this.client.PersonalInformation.firstName);
     form += UI.nl();
     form += UI.getLabel('middleName', 'Middle Name');
-    form += UI.getTextInput('middleName', this.client.middleName);
+    form += UI.getTextInput('middleName', this.client.PersonalInformation.middleName);
     form += UI.nl();
     form += UI.getLabel('lastName', 'Last Name');
-    form += UI.getTextInput('lastName', this.client.lastName);
+    form += UI.getTextInput('lastName', this.client.PersonalInformation.lastName);
     form += UI.nl();
     form += UI.getLabel('branchName', 'Branch');
-    form += UI.getTextInput('branchName', this.client.branchName);
+    options = {
+      'ho': 'Head Office',
+      'pl': 'Premier League',
+      'ch': 'Championship',
+      'le': 'League 1',
+      'll': 'La Liga',
+      'bn': 'Bundesliga'
+    };
+    form += UI.getSelection('branchName', options, this.client.PersonalInformation.branchName);
     form += UI.nl();
     form += UI.getLabel('gender', 'Gender');
     options = {
       'm': 'Male',
       'f': 'Female'
     };
-    form += UI.getRadioButton('gender', options, this.client.gender);
+    form += UI.getRadioButton('gender', options, this.client.PersonalInformation.gender);
     form += UI.nl();
     form += UI.getLabel('dateOfBirth', 'Date of Birth');
-    form += UI.getTextInput('dateOfBirth', this.client.dateOfBirth);
+    form += UI.getTextInput('dateOfBirth', this.client.PersonalInformation.dateOfBirth);
     form += UI.nl();
     form += UI.getLabel('maritalStatus', 'Marital Status');
     options = {
@@ -48,24 +59,36 @@ ClientRegistrationView = (function() {
       'm': 'Married',
       'd': 'divorced'
     };
-    form += UI.getSelection('maritalStatus', options, this.client.maritalStatus);
+    form += UI.getSelection('maritalStatus', options, this.client.PersonalInformation.maritalStatus);
     form += UI.nl();
     form += UI.getLabel('phoneNumber', 'Phone Number');
-    form += UI.getTextInput('phoneNumber', this.client.phoneNumber);
+    form += UI.getTextInput('phoneNumber', this.client.PersonalInformation.phoneNumber);
     form += UI.nl();
     form += UI.getLabel('address', 'Address');
-    form += UI.getTextInput('address', this.client.address);
+    form += UI.getTextInput('address', this.client.PersonalInformation.address);
     form += UI.nl();
     form += UI.getLabel('town', 'Town');
-    form += UI.getTextInput('town', this.client.town);
+    form += UI.getTextInput('town', this.client.PersonalInformation.town);
     form += UI.nl();
     form += UI.getLabel('county', 'County');
-    form += UI.getTextInput('county', this.client.county);
+    form += UI.getTextInput('county', this.client.PersonalInformation.county);
     form += UI.nl();
     return form += UI.getSubmit('Submit', 'ClientRegistrationSubmit');
   };
 
-  ClientRegistrationView.prototype.extractData = function() {};
+  ClientRegistrationView.prototype.extractData = function() {
+    this.client.PersonalInformation.firstName = $('#firstName').val();
+    this.client.PersonalInformation.middleName = $('#middleName').val();
+    this.client.PersonalInformation.lastName = $('#lastName').val();
+    this.client.PersonalInformation.branchName = $('#branchName :selected').val();
+    this.client.PersonalInformation.gender = $('input:radio[name=gender]:checked').val();
+    this.client.PersonalInformation.dateOfBirth = $('#dateOfBirth').val();
+    this.client.PersonalInformation.maritalStatus = $('#maritalStatus :selected').val();
+    this.client.PersonalInformation.phoneNumber = $('#phoneNumber').val();
+    this.client.PersonalInformation.address = $('#address').val();
+    this.client.PersonalInformation.town = $('#town').val();
+    return this.client.PersonalInformation.county = $('#county').val();
+  };
 
   return ClientRegistrationView;
 

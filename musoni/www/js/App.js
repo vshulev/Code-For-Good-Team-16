@@ -4,6 +4,7 @@ var App;
 App = (function() {
   function App() {
     this.mainRegion = $('#main-region');
+    $('#back-region button').click();
     this.statusStack = [];
     this.currentModel = null;
     this.show(new OptionsView());
@@ -16,18 +17,12 @@ App = (function() {
 
   App.prototype.customerForm = function() {
     this.currentModel = new FormModel();
-    return this.show(new CustomerFormView());
+    return this.show(new ClientRegistrationView());
   };
 
   App.prototype.groupForm = function() {
     this.currentModel = new FormModel();
     return this.show(new GuestFormView());
-  };
-
-  App.prototype.submit = function() {
-    if (this.currentModel !== null) {
-      return currentModel.submit();
-    }
   };
 
   App.prototype.back = function() {
