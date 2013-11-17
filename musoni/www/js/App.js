@@ -27,9 +27,11 @@ App = (function() {
   };
 
   App.prototype.back = function() {
+    console.log(this.statusStack.length);
     if (this.statusStack.length > 1) {
       this.statusStack.pop();
-      return this.show(this.statusStack[this.statusStack.length - 1]);
+      this.show(this.statusStack[this.statusStack.length - 1]);
+      return this.statusStack.pop();
     }
   };
 

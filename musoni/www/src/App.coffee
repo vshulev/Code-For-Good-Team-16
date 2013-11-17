@@ -23,6 +23,7 @@ class App
 		if @statusStack.length > 1
 			@statusStack.pop()
 			@show( @statusStack[@statusStack.length - 1] )
+			@statusStack.pop()
 
 $(document).ready( ->
     window.app = new App()
