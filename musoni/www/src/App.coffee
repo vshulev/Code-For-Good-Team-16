@@ -4,11 +4,14 @@ class App
 		@mainRegion = $('#main-region')
 		$('#back-region button').click()
 		@statusStack = []
-		@show( new OptionsView() )
+		@show( new LoginView() )
 
 	show: (view) ->
 		@mainRegion.html( view.render() )
 		@statusStack.push(view)
+
+	optionsView: ->
+		@show( new OptionsView() )
 
 	customerForm: ->
 		@show( new ClientRegistrationView( new ClientModel() ) )
@@ -17,9 +20,11 @@ class App
 		@show( new GroupRegistrationView( new GroupModel() ) )
 
 	back: ->
-		@statusStack.pop()
-		@show( @statusStack[@statusStack.length - 1].render() )
+		if @statusStack.length > 1
+			@statusStack.pop()
+			@show( @statusStack[@statusStack.length - 1] )
+			@statusStack.pop()
 
 $(document).ready( ->
-	window.app = new App()
+    window.app = new App()
 )

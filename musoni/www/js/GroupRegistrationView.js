@@ -61,12 +61,14 @@ GroupRegistrationView = (function(_super) {
     };
     form += UI.getSelection('meetingFrequency', options, this.model.meetingFrequency);
     form += UI.nl();
-    form += UI.getSubmit('Submit', 'groupRegistrationSubmit');
+    form += UI.getSubmit('Submit', 'RegistrationSubmit');
     form += UI.nl();
     form += '</div>';
+    form += '<div class="form-nav">';
     form += UI.getBackNext('Back', 'GoBack');
     form += '<span id="page-c">Page ' + this.page + ' out of ' + this.maxPage + '</span>';
     form += UI.getBackNext('Next', 'GoNext');
+    form += '</div>';
     return form;
   };
 

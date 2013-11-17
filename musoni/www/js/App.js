@@ -6,12 +6,16 @@ App = (function() {
     this.mainRegion = $('#main-region');
     $('#back-region button').click();
     this.statusStack = [];
-    this.show(new OptionsView());
+    this.show(new LoginView());
   }
 
   App.prototype.show = function(view) {
     this.mainRegion.html(view.render());
     return this.statusStack.push(view);
+  };
+
+  App.prototype.optionsView = function() {
+    return this.show(new OptionsView());
   };
 
   App.prototype.customerForm = function() {
@@ -23,8 +27,12 @@ App = (function() {
   };
 
   App.prototype.back = function() {
-    this.statusStack.pop();
-    return this.show(this.statusStack[this.statusStack.length - 1].render());
+    console.log(this.statusStack.length);
+    if (this.statusStack.length > 1) {
+      this.statusStack.pop();
+      this.show(this.statusStack[this.statusStack.length - 1]);
+      return this.statusStack.pop();
+    }
   };
 
   return App;

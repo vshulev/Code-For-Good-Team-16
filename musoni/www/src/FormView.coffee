@@ -1,6 +1,6 @@
 class FormView
     constructor: (@model) ->
-            window.ClientRegistrationSubmit = => @submission()
+            window.RegistrationSubmit = => @submission()
             
             window.GoNext = =>
                     if @page < @maxPage
@@ -20,6 +20,7 @@ class FormView
                     if @page == 1
                             $('#Back').attr('disabled','disabled')
                     $('#Next').removeAttr('disabled')
+                    $('#page-c').html( 'Page '+@page+' out of '+@maxPage )
     
     submission: ->
             @extractData()

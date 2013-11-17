@@ -7,7 +7,14 @@ Model = (function() {
     this.reachableCallback = __bind(this.reachableCallback, this);
   }
 
-  Model.prototype.submit = function() {};
+  Model.prototype.submit = function() {
+    var storeObj;
+    storeObj = this.getStoreObject();
+    storeObj.formData = new Encryptor().encrypt(storeObj.formData);
+    this.storeLocally(storeObj);
+    alert('No connection, stored localy!');
+    return window.app.back();
+  };
 
   Model.prototype.reachableCallback = function(reachability) {
     var storeObj;
