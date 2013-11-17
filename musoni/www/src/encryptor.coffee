@@ -1,9 +1,9 @@
 class Encryptor
 	constructor: (@key) -> 
-	
-	decrypt: (d_key, encrypted) =>
+
+	decrypt: (encrypted, d_key) =>
 		if d_key == @key
-			return JSON.parse CryptoJS.AES.decrypt(encrypted, "hamster")
+			return JSON.parse CryptoJS.AES.decrypt(encrypted, "hamster").toString(CryptoJS.enc.Utf8)
 		return ""
 	
 	

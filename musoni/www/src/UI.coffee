@@ -1,17 +1,20 @@
 class UI
 	@getTextInput: (name, value) ->
+		value ?= ''
 		"<input type='text' name='#{name}' id='#{name}' value='#{value}' />"
 	
-	@getRadioButton: (name, options, selected) ->
-		_(_(options).map( (value, display) ->
-				selected = if value == selected then "checked" else ""
+	@getRadioButton: (name, options, checked) ->
+		_(_(options).map( (display, value) ->
+				selected = if value == checked then "checked" else ""
+				value ?= ''
 				"<input type='radio' name='#{name}' id='#{name}_#{value}' value='#{value}' #{selected}/>" + UI.getLabel( name+'_'+value, display )
 			)).join( '' )
 		
-	@getSelection: (name, options) ->
+	@getSelection: (name, options, selected) ->
 		ret = "<select id='#{name}' name='#{name}'>"
-		ret += _(_(options).each( (value, display) ->
+		ret += _(_(options).map( (display, value) ->
 				selected = if value == selected then "selected" else ""
+				value ?= ''
 				"<option id='#{name}_#{value}' value='#{value}' #{selected}>#{display}</option>"
 			)).join( '' )
 		ret += "</select>"
@@ -20,6 +23,9 @@ class UI
 			
 	@getLabel: (id, display) ->
 		"<label for='#{id}'>#{display}</label>"
+
+	@getSubmit: (name, functionName) ->
+		"<input type='submit' value='" + name + "' onclick='" + functionName + "()' />"
 		
 	@nl: ->
 		'<br/>'
