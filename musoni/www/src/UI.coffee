@@ -2,6 +2,10 @@ class UI
 	@getTextInput: (name, value) ->
 		value ?= ''
 		"<input type='text' name='#{name}' id='#{name}' value='#{value}' />"
+
+	@getPasswordInput: (name, value) ->
+		value ?= ''
+		"<input type='password' name='#{name}' id='#{name}' value='#{value}' />"
 	
 	@getRadioButton: (name, options, checked) ->
 		_(_(options).map( (display, value) ->

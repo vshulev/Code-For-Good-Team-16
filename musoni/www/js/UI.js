@@ -11,6 +11,13 @@ UI = (function() {
     return "<input type='text' name='" + name + "' id='" + name + "' value='" + value + "' />";
   };
 
+  UI.getPasswordInput = function(name, value) {
+    if (value == null) {
+      value = '';
+    }
+    return "<input type='password' name='" + name + "' id='" + name + "' value='" + value + "' />";
+  };
+
   UI.getRadioButton = function(name, options, checked) {
     return _(_(options).map(function(display, value) {
       var selected;
