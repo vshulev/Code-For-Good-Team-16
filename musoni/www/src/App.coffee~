@@ -2,7 +2,7 @@
 class App
 	constructor: ->
 		@mainRegion = $('#main-region')
-		$('#back-region button').click();
+		$('#back-region button').click()
 		@statusStack = []
 		@currentModel = null
 		@show( new OptionsView() )

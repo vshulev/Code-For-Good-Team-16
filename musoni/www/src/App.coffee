@@ -24,5 +24,5 @@ class App
 		@show( @statusStack[@statusStack.length - 1].render() )
 
 $(document).ready( ->
-	document.app = new App()
+	window.app = new App()
 )
