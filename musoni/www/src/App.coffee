@@ -12,7 +12,7 @@ class App
 
 	customerForm: ->
 		@currentModel = new FormModel()
-		@show( new CustomerFormView() )
+		@show( new ClientRegistrationView() )
 
 	groupForm: ->
 		@currentModel = new FormModel()
