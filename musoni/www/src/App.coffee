@@ -1,25 +1,28 @@
 # main application entry point
 class App
-    constructor: ->
-        @mainRegion = $('#main-region')
-        $('#back-region button').click()
-        @statusStack = []
-        @show( new OptionsView() )
+	constructor: ->
+		@mainRegion = $('#main-region')
+		$('#back-region button').click()
+		@statusStack = []
+		@show( new LoginView() )
 
-    show: (view) ->
-        @mainRegion.html( view.render() )
-        @statusStack.push(view)
+	show: (view) ->
+		@mainRegion.html( view.render() )
+		@statusStack.push(view)
 
-    customerForm: ->
-        @show( new ClientRegistrationView( new ClientModel() ) )
+	optionsView: ->
+		@show( new OptionsView() )
 
-    groupForm: ->
-        @show( new GroupRegistrationView( new GroupModel() ) )
+	customerForm: ->
+		@show( new ClientRegistrationView( new ClientModel() ) )
 
-    back: ->
-        if @statusStack.length > 1
-            @statusStack.pop()
-            @show( @statusStack[@statusStack.length - 1] )
+	groupForm: ->
+		@show( new GroupRegistrationView( new GroupModel() ) )
+
+	back: ->
+		if @statusStack.length > 1
+			@statusStack.pop()
+			@show( @statusStack[@statusStack.length - 1] )
 
 $(document).ready( ->
     window.app = new App()
