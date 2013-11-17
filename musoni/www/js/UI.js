@@ -40,6 +40,10 @@ UI = (function() {
     return "<label for='" + id + "'>" + display + "</label>";
   };
 
+  UI.getSubmit = function(name, functionName) {
+    return "<input type='submit' value='" + name + "' onclick='" + functionName + "()' />";
+  };
+
   UI.nl = function() {
     return '<br/>';
   };
