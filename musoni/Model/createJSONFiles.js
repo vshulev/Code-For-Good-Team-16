@@ -233,8 +233,39 @@ function createGroupTable(){
 }
 
 
-function remoteStorageClient(){
-	
+function remoteStorageClient(JSON clientObject){
+	PUT https://DomainName/api/v1/datatables/group_details
+	Content-Type: application/json 
+	Request Body:
+	{
+		"apptableName" : "m_client",
+		"addColumns" : [
+			{
+				"firstName" : clientObject.name
+				"middleName" : clientObject.middleName
+				"lastName" : clientObject.lastName
+				"dateOfBirth" : clientObject.dateOfBirth
+				"gender" : clientObject.gender
+				"maritalStatus" : clientObject.maritalStatus
+				"phoneNumber" : clientObject.phoneNumber
+				"address" : clientObject.address
+				"town" : clientObject.town
+				"county" : clientObject.county
+				"documentType" : clientObject.documentType
+				"uniqueIDNumber" : clientObject.uniqueIDNumber
+				"description" : clientObject.description
+				"MPesaNumber" : clientObject.mPesaNumber			
+		}
+	]
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 }
