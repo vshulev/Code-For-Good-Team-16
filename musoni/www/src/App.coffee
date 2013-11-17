@@ -2,6 +2,7 @@
 class App
 	constructor: ->
 		@mainRegion = $('#main-region')
+		$('#back-region button').click()
 		@statusStack = []
 		@currentModel = null
 		@show( new OptionsView() )
@@ -17,10 +18,6 @@ class App
 	groupForm: ->
 		@currentModel = new FormModel()
 		@show( new GuestFormView() )
-
-	submit: ->
-		if @currentModel != null
-			currentModel.submit()
 
 	back: ->
 		@statusStack.pop();

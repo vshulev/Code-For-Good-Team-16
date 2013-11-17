@@ -23,6 +23,9 @@ class UI
 			
 	@getLabel: (id, display) ->
 		"<label for='#{id}'>#{display}</label>"
+
+	@getSubmit: (name, functionName) ->
+		"<input type='submit' value='" + name + "' onclick='" + functionName + "()' />"
 		
 	@nl: ->
 		'<br/>'

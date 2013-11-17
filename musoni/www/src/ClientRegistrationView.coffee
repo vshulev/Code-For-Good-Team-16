@@ -1,6 +1,7 @@
 class ClientRegistrationView
 	constructor: (@client) ->
 		@client = {}
+		window.ClientRegistrationSubmit = => @submission()
 
 	submission: ->
 		@extractData()
@@ -42,6 +43,7 @@ class ClientRegistrationView
 		form += UI.getLabel( 'county','County' )
 		form += UI.getTextInput('county', @client.county )
 		form += UI.nl()	
+		form += UI.getSubmit( 'Submit', 'ClientRegistrationSubmit' )
 
 	extractData: ->
 		
