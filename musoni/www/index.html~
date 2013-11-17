@@ -23,29 +23,47 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
         <title>Musoni</title>
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/aes.js"></script>
         <script type="text/javascript" src="js/underscore-min.js"></script>
 
         <script type="text/javascript" src="js/UI.js"></script>
-		<script type="text/javascript" src="js/encryptor.js"></script>
+	<script type="text/javascript" src="js/encryptor.js"></script>
+	<script type="text/javascript" src="js/sync.js"></script>
+	<script type="text/javascript" src="js/localStore.js"></script>
         <script type="text/javascript" src="js/OptionsView.js"></script>
+        <script type="text/javascript" src="js/FormView.js"></script>
         <script type="text/javascript" src="js/ClientRegistrationView.js"></script>
         <script type="text/javascript" src="js/GroupRegistrationView.js"></script>
-        <script type="text/javascript" src="js/App.js"></script>
 
-		<style type="text/css">
-			.form-page { display: none; }
-			#page-1 { display: block; }
-		</style>
+        <script type="text/javascript" src="js/Model.js"></script>
+        <script type="text/javascript" src="js/ClientModel.js"></script>
+        <script type="text/javascript" src="js/GroupModel.js"></script>
+
+        <script type="text/javascript" src="js/App.js"></script>
     </head>
     <body>
         <div class="app">
+
+		<div id="topbar">
+			
+			
+			<div id = "sync"><img id = "sync-button" onclick="new Sync("code4good", "UK2013")" src="img/sync.png" alt="Sync Button" /></div>
+			<div id = "back"><img id = "back-button" onclick="window.app.back()" src="img/back.png" alt = "Back Button" /></div>
+			
+			<div id="logo-container"><img id="musoni-logo" src="img/logo.png" alt="Musoni Logo" /></div>
+			
+			<div style="clear:both; height: 0px">&nbsp;</div>
+
+		</div>
+
+	<!--
 	    <div id="back-region">
-		<input type="button" value="Back" />
+		<input type="button" value="Back" onclick="window.app.back()" />
 	    </div>
+	-->
             <div id="main-region">Main Region</div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>

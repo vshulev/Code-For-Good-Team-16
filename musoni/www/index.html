@@ -46,9 +46,24 @@
     </head>
     <body>
         <div class="app">
+
+		<div id="topbar">
+			
+			
+			<div id = "sync"><img id = "sync-button" onclick="new Sync("code4good", "UK2013")" src="img/sync.png" alt="Sync Button" /></div>
+			<div id = "back"><img id = "back-button" onclick="window.app.back()" src="img/back.png" alt = "Back Button" /></div>
+			
+			<div id="logo-container"><img id="musoni-logo" src="img/logo.png" alt="Musoni Logo" /></div>
+			
+			<div style="clear:both; height: 0px">&nbsp;</div>
+
+		</div>
+
+	<!--
 	    <div id="back-region">
 		<input type="button" value="Back" onclick="window.app.back()" />
 	    </div>
+	-->
             <div id="main-region">Main Region</div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
