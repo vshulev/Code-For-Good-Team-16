@@ -1,7 +1,11 @@
 class ClientRegistrationView
 	constructor: (@client) ->
 		@client = {}
-		
+
+	submission: ->
+		@extractData()
+		@client.submit()
+	
 	render: =>
 		form = UI.getLabel( 'firstName','First Name' )
 		form += UI.getTextInput('firstName', @client.firstName )
@@ -38,3 +42,6 @@ class ClientRegistrationView
 		form += UI.getLabel( 'county','County' )
 		form += UI.getTextInput('county', @client.county )
 		form += UI.nl()	
+
+	extractData: ->
+		
