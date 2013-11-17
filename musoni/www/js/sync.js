@@ -12,25 +12,15 @@ Sync = (function() {
     this.url = '';
     this.verbType = '';
     this.jsonData = {};
-    this.setBasicAuthKey();
+    this.send_data();
   }
 
+  Sync.prototype.checkConnection = function() {
+    return navigator.connection.type;
+  };
+
   Sync.prototype.setBasicAuthKey = function() {
-    var jqxhr,
-      _this = this;
-    return jqxhr = $.ajax({
-      url: this.API_URL + "?authentication?username=" + this.username + "&password=" + this.password,
-      type: 'POST',
-      contentType: "application/json; charset=utf-8",
-      dataType: 'json',
-      data: "{}",
-      cache: false,
-      success: function(data, textStatus, jqXHR) {
-        _this.basicAuthKey = data.base64EncodedAuthenticationKey;
-        return alert(_this.basicAuthKey);
-      },
-      error: function(jqXHR, textStatus, errorThrown) {}
-    });
+    return this.basicAuthKey = "Y29kZTRnb29kOlVLMjAxMw==";
   };
 
   Sync.prototype.executeAjaxRequest = function(url, verbType, jsonData, basicAuthKey, successFunction, errorFunction) {
@@ -55,11 +45,12 @@ Sync = (function() {
 
   Sync.prototype.errorFunction = function() {};
 
-  Sync.prototype.send_data = function(action) {
-    var jsonData;
-    this.setBasicAuthKey();
-    jsonData = action;
-    return executeAjaxRequest(this.url, this.verbType, this.jsonData, this.basicAuthKey, successFunction, errorFunction);
+  Sync.prototype.send_data = function() {
+    if (true) {
+      return alert("please connect to the internet before sync");
+    } else {
+      return executeAjaxRequest(this.url, this.verbType, this.jsonData, this.basicAuthKey, successFunction, errorFunction);
+    }
   };
 
   Sync.prototype.create_client = function(firstname, lastname, fullname, officeId, active, activationDate, groupId, externalId, accountNo, staffId) {

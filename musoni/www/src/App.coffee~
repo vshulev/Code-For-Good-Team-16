@@ -9,7 +9,7 @@ class App
 
 	show: (view) ->
 		@mainRegion.html( view.render() )
-		@statusStack.push(view)
+		@statusStack.push(view);
 
 	customerForm: ->
 		@currentModel = new ClientModel()
@@ -20,7 +20,7 @@ class App
 		@show( new GuestFormView() )
 
 	back: ->
-		@statusStack.pop()
+		@statusStack.pop();
 		@show( @statusStack[@statusStack.length - 1].render() )
 
 $(document).ready( ->

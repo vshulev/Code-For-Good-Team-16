@@ -1,0 +1,215 @@
+<!DOCTYPE>
+
+<html>
+
+	<head>
+		<script src="../js/jquery-1.10.2.min.js"></script>
+		<script>
+
+			var requestBody = {
+			    "datatableName": "client_details_16",
+			    "apptableName": "m_client",
+			    "columns": [
+				{
+				    "name": "firstName",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "middleName",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "lastName",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "dateOfBirth",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "gender",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "maritalStatus",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "phoneNumber",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "address",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "town",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "county",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "documentType",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "uniqueIDNumber",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "description",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "MPesaNumber",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "businessName",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "businessType",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "startDate",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "addressOfBusiness",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "pCodeOfBusiness",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "relationToClient",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "nameOfRelation",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "dateOfBirth",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "addressOfRelation",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "cityOfRelation",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "phoneOfRelation",
+				    "type": "Number"
+				},
+				{
+				    "name": "certifyTickBox",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "certifyForm",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "dateOfCertify",
+				    "type": "Date"
+				},
+				{
+				    "name": "approvalOfficerName",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "approvalManagerName",
+				    "type": "String",
+				    "length": 100
+				},
+				{
+				    "name": "dateOfApproval ",
+				    "type": "Number"
+				},
+				{
+				    "name": "approvalTickBox ",
+				    "type": "Number"
+				}
+			    ]
+			};
+
+			function setBasicAuthKey() {
+				var jqxhr = $.ajax({
+					url : "https://mlite-demo.musoni.eu:8443/mifosng-provider/api/v1/authenticationusername=code4good&password=UK2013",
+					type : 'POST', contentType : "application/json; charset=utf-8",
+					dataType : 'json',
+					data : "{}",
+					cache : false,
+					success : function(data, textStatus, jqXHR) {
+						var basicAuthKey = data.base64EncodedAuthenticationKey;
+						executeAjaxRequest();
+					},
+					error : function(jqXHR, textStatus, errorThrown) { //error processing
+						console.log(jqXHR);
+						console.log(textStatus);
+						console.log(errorThrown);
+					}
+				});
+			} 
+
+			function executeAjaxRequest(basicAuthKey) {
+				var jqxhr = $.ajax({
+					url : "https://mlite-demo.musoni.eu:8443/mifosng-provider/api/v1/datatables",
+					type : "POST",
+					contentType : "application/json; charset=utf-8",
+					dataType : 'json',
+					data : requestBody,
+					cache : false,
+					beforeSend : function(xhr) {
+							xhr.setRequestHeader("Authorization", "Basic " + basicAuthKey);
+						},
+					success : function(a, b, c) { console.log(a); console.log(b); console.log(c); },
+					error : function(a, b, c) { console.log(a); console.log(b); console.log(c); }
+				});
+			}
+
+			$(function() { setBasicAuthKey(); });
+		</script>
+	</head>
+
+	<body>
+		Hi.
+	</body>
+
+</html>
