@@ -35,7 +35,7 @@ GroupModel = (function(_super) {
 
   GroupModel.prototype.getStoreObject = function() {
     return {
-      gid: this.ClientIdentification.uniqueIDNumber,
+      gid: this.GroupInformation.groupId,
       gname: this.GroupInformation.groupName,
       formData: this.getDataObject()
     };

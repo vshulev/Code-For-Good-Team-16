@@ -32,7 +32,7 @@ function LocalStore() {
 		// prepare data
 		var fname = gname + ".json";
 		var fdata = {
-			"uid": uid,
+			"gid": gid,
 			"gname": fname,
 			"formData": formData
 		};
