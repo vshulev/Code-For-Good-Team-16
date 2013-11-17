@@ -1,5 +1,5 @@
 function createClientFields(){
-	clientObject = {"Client Information" = 
+	clientObject = {"Client Information" :
 	{"LoanOfficer" : "",
 	 "BranchName" : "",
 	 "GroupName" : ""},
@@ -140,12 +140,11 @@ function createClientTable(){
     	   { "name": "MPesaNumber",
     		 "type": "String" },
 	
-	 
-    	   {"name": "businessName", 
-    		  	 "type": "String"}, 
+    	   { "name": "businessName", 
+    		 "type": "String"}, 
 	
     	   { "name": "businessType",
-    			 "type": "String" },
+    		 "type": "String" },
 			 
     	   { "name": "startDate", 
     	     "type": "String"},
@@ -173,8 +172,105 @@ function createClientTable(){
 	
            { "name": "phoneOfRelation",
              "type": "Number" },  
+			 	 	 
+           { "name": "certifyTickBox", 
+        	 "type": "String"},
+			 
+           { "name": "certifyForm", 
+          	 "type": "String"},
+		
+           { "name": "dateOfCertify", 
+             "type": "Date"}, 
+	
+           { "name": "approvalOfficerName",
+         	 "type": "String" },
+			 
+           { "name": "approvalManagerName", 
+             "type": "String"}, 
+	
+           { "name": "dateOfApproval ",
+             "type": "Number" }, 
+			 
+           { "name": "approvalTickBox ",
+             "type": "Number" }, 
 
 	  	} 
 	  ] 
   }	
+  
+  
+function createGroupTable(){
+  POST https://DomainName/api/v1/datatables Content-Type: application/json 
+  Request Body: 
+  { "datatableName": "group_details", 
+  	"apptableName": "m_client", 
+  	"columns": [ 
+  		   { "name": "groupName", 
+  			 "type": "String"},
+		
+  		 	{"name": "branchName", 
+  		  	 "type": "String"}, 
+	
+  		   { "name": "loanOfficer",
+  			 "type": "String" }, 
+			 
+             { "name": "registrationNumber", 
+      	     "type": "Number"},
+		
+             { "name": "meetingLocation", 
+          	 "type": "String"},
+			 
+    		 { "name": "meetingDay", 
+    		   "type": "String"},
+		
+    	     {"name": "meetingFrequency", 
+    		  "type": "String"},   
+			  
+     	     {"name": "groupMembers", 
+     		  "type": "String"}, 
+  	  	} 
+  	] 
+}
+
+
+function remoteStorageClient(){
+	
+	
+	
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
