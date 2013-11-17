@@ -9,6 +9,7 @@ body {
     padding-right: 5%;
     padding-top: 60px;
     padding-bottom: 20px;
+    margin-bottom: 20px;
     position: relative;
 }
 
@@ -42,6 +43,7 @@ body {
 #main-region {
     width: 100%;
     clear: both;
+    padding-bottom: 20px;
 }
 
 #buttons-container {
@@ -56,6 +58,7 @@ body {
     color: white;
     display: inline-block;
     margin: 100px;
+    margin-top: 80px;
     padding: 20px;
     padding-top: 20px;
     font-size: 30px;
@@ -136,4 +139,10 @@ label.radio {
 #Next:disabled, #Back:disabled {
     background: #666666;
     cursor: auto;
+}
+
+.app {
+    margin: 0 auto;
+    width: 90%;
+    box-shadow: 0 0 10px #666;
 }
