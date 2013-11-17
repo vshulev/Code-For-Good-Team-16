@@ -7,7 +7,7 @@ GroupRegistrationView = (function() {
     var _this = this;
     this.group = group;
     this.render = __bind(this.render, this);
-    this.group = {GroupInformation: {}};
+    this.group = {};
     window.groupRegistrationSubmit = function() {
       return _this.submission();
     };
