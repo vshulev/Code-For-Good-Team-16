@@ -64,10 +64,18 @@ body {
 
 #create-customer {
     background: #22BD5B url('User.png') center center no-repeat;
+    cursor: pointer;
+}
+#create-customer:active {
+    background: #BD225B url('User.png') center center no-repeat;
 }
 
 #create-group {
     background: #22BD5B url('Users.png') center center no-repeat;
+    cursor: pointer;
+}
+#create-group:active {
+    background: #BD225B url('Users.png') center center no-repeat;
 }
 
 /* ------------------------------------------------------ */
@@ -79,8 +87,15 @@ input[type="text"], select, option {
 }
 
 input[type="submit"] {
-    margin: 0 auto;
-    width: 50px;
+    width: 50%;
+    padding: 15px 20px;
+    display: inline-block;
+    margin-left: 25%;
+    border: 0;
+    background: #22BD5B;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
 }
 
 label {
@@ -96,7 +111,7 @@ label.radio {
 
 .form-page {
     display: none;
-    line-height: 50px;
+    line-height: 55px;
 }
 
 #page-1 {
@@ -105,4 +120,20 @@ label.radio {
 
 .form-nav {
     text-align: center;
+}
+#Next, #Back {
+    padding: 20px;
+    margin: 5px 20px;
+    border: 0;
+    background: #BD225B;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+#Next:active, #Back:active {
+    background: #22BD5B;
+}
+#Next:disabled, #Back:disabled {
+    background: #666666;
+    cursor: auto;
 }

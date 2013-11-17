@@ -23,8 +23,10 @@ App = (function() {
   };
 
   App.prototype.back = function() {
-    this.statusStack.pop();
-    return this.show(this.statusStack[this.statusStack.length - 1].render());
+    if (this.statusStack.length > 1) {
+      this.statusStack.pop();
+      return this.show(this.statusStack[this.statusStack.length - 1]);
+    }
   };
 
   return App;

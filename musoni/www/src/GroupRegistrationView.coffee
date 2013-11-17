@@ -36,9 +36,12 @@ class GroupRegistrationView extends FormView
         form += UI.getSubmit( 'Submit', 'groupRegistrationSubmit' )
         form += UI.nl()
         form += '</div>'
+
+        form += '<div class="form-nav">'
         form += UI.getBackNext( 'Back', 'GoBack' )
         form += '<span id="page-c">Page '+@page+' out of '+@maxPage+'</span>'
         form += UI.getBackNext( 'Next', 'GoNext' )
+        form += '</div>'
         form
 
 

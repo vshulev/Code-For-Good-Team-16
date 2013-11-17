@@ -29,7 +29,8 @@ FormView = (function() {
       if (_this.page === 1) {
         $('#Back').attr('disabled', 'disabled');
       }
-      return $('#Next').removeAttr('disabled');
+      $('#Next').removeAttr('disabled');
+      return $('#page-c').html('Page ' + _this.page + ' out of ' + _this.maxPage);
     };
   }
 
