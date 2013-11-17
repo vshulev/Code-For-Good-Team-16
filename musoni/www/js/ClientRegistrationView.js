@@ -4,10 +4,19 @@ var ClientRegistrationView,
 
 ClientRegistrationView = (function() {
   function ClientRegistrationView(client) {
+    var _this = this;
     this.client = client;
     this.render = __bind(this.render, this);
     this.client = {};
+    window.ClientRegistrationSubmit = function() {
+      return _this.submission();
+    };
   }
+
+  ClientRegistrationView.prototype.submission = function() {
+    this.extractData();
+    return this.client.submit();
+  };
 
   ClientRegistrationView.prototype.render = function() {
     var form, options;
@@ -52,8 +61,11 @@ ClientRegistrationView = (function() {
     form += UI.nl();
     form += UI.getLabel('county', 'County');
     form += UI.getTextInput('county', this.client.county);
-    return form += UI.nl();
+    form += UI.nl();
+    return form += UI.getSubmit('Submit', 'ClientRegistrationSubmit');
   };
+
+  ClientRegistrationView.prototype.extractData = function() {};
 
   return ClientRegistrationView;
 
