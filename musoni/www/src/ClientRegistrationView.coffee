@@ -22,7 +22,7 @@ class ClientRegistrationView
 			if @page == 1
 				$('#Back').attr('disabled','disabled');
 			$('#Next').removeAttr('disabled');
-
+	
 	submission: ->
 		@extractData()
 		@client.submit()
@@ -75,11 +75,6 @@ class ClientRegistrationView
 		form += UI.getBackNext( 'Next', 'GoNext' )
 		form += UI.nl()	
 		form += UI.getBackNext( 'Back', 'GoBack' )
-		$('#maritalStatus :selected').hide()
-		$('#phoneNumber').hide()
-		$('#address').hide()
-		$('#town').hide()
-		$('#county').hide()
 		form
 
 	extractData: =>
