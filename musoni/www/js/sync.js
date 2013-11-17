@@ -46,11 +46,9 @@ Sync = (function() {
   Sync.prototype.errorFunction = function() {};
 
   Sync.prototype.send_data = function() {
-    alert("sync");
-    if (navigator.network.isReachable("phonegap.com", this.reachableCallback, {}) === NetworkStatus.NOT_REACHABLE) {
+    if (true) {
       return alert("please connect to the internet before sync");
     } else {
-      alert("connection");
       return executeAjaxRequest(this.url, this.verbType, this.jsonData, this.basicAuthKey, successFunction, errorFunction);
     }
   };

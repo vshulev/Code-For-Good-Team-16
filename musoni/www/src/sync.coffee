@@ -53,12 +53,10 @@ class Sync
 		
 		
 	send_data: -> # (action) ->
-		alert ("sync")
-		if navigator.connection.type == Connection.NONE
+		if true #navigator.connection.type == Connection.NONE
 			alert ("please connect to the internet before sync")
 		else
 			#@setBasicAuthKey()
-			alert ("connection")
 			executeAjaxRequest(@url, @verbType, @jsonData, @basicAuthKey, successFunction, errorFunction)
 		
 		
