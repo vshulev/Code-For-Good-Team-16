@@ -1,6 +1,6 @@
 class ClientRegistrationView
 	constructor: (@client) ->
-		@client = {}
+		@client = {PersonalInformation: {}}
 		window.ClientRegistrationSubmit = => @submission()
 
 	submission: ->
@@ -47,17 +47,17 @@ class ClientRegistrationView
 		form += UI.getSubmit( 'Submit', 'ClientRegistrationSubmit' )
 
 	extractData: =>
-		@client.PersonalInformation.firstName=${'#firstName'}.val()
-		@client.PersonalInformation.middleName=${'#middleName'}.val()
-		@client.PersonalInformation.lastName=${'#lastName'}.val()
+		@client.PersonalInformation.firstName=$('#firstName').val()
+		@client.PersonalInformation.middleName=$('#middleName').val()
+		@client.PersonalInformation.lastName=$('#lastName').val()
 		@client.PersonalInformation.branchName=$('#branchName :selected').val()
 		@client.PersonalInformation.gender=$('input:radio[name=gender]:checked').val();
-		@client.PersonalInformation.dateOfBirth=${'#dateOfBirth'}.val()
+		@client.PersonalInformation.dateOfBirth=$('#dateOfBirth').val()
 		@client.PersonalInformation.maritalStatus=$('#maritalStatus :selected').val()
-		@client.PersonalInformation.phoneNumber=${'#phoneNumber'}.val()
-		@client.PersonalInformation.address=${'#address'}.val()
-		@client.PersonalInformation.town=${'#town'}.val()
-		@client.PersonalInformation.county=${'#county'}.val()
+		@client.PersonalInformation.phoneNumber=$('#phoneNumber').val()
+		@client.PersonalInformation.address=$('#address').val()
+		@client.PersonalInformation.town=$('#town').val()
+		@client.PersonalInformation.county=$('#county').val()
 		
 
 	
