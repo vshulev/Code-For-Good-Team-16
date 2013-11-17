@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="eu.musoni.tablet" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>musoni</name>
+    <name>Musoni Tablet</name>
     <description>
         A flexible native app to enable loan officers to carry out tasks such as client registration, business visits and loan applications in the field on tablets or smartphones. 
     </description>
