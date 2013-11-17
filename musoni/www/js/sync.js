@@ -12,7 +12,7 @@ Sync = (function() {
     this.url = '';
     this.verbType = '';
     this.jsonData = {};
-    this.send_data();
+    this.setBasicAuthKey();
   }
 
   Sync.prototype.checkConnection = function() {
@@ -20,7 +20,28 @@ Sync = (function() {
   };
 
   Sync.prototype.setBasicAuthKey = function() {
-    return this.basicAuthKey = "Y29kZTRnb29kOlVLMjAxMw==";
+    var jqxhr,
+      _this = this;
+    return jqxhr = $.ajax({
+      url: "https://mlite-demo.musoni.eu:8443/mifosng-provider/api/v1/authentication/?username=" + this.username + "&password=" + this.password,
+      type: 'POST',
+      contentType: "application/json; charset=utf-8",
+      dataType: 'json',
+      crossDomain: true,
+      data: "{}",
+      cache: false,
+      beforeSend: function(xhr) {
+        return xhr.setRequestHeader("X-Mifos-Platform-TenantId", "code4good");
+      },
+      success: function(data, textStatus, jqXHR) {
+        _this.basicAuthKey = data.base64EncodedAuthenticationKey;
+        return console.log(_this.basicAuthKey);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(errorThrown);
+        return console.log(JSON.stringify(jqXHR));
+      }
+    });
   };
 
   Sync.prototype.executeAjaxRequest = function(url, verbType, jsonData, basicAuthKey, successFunction, errorFunction) {

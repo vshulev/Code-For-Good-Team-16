@@ -6,7 +6,8 @@ class Sync
 		@url = ''
 		@verbType = ''
 		@jsonData = {}
-		@send_data()
+		#@send_data()
+		@setBasicAuthKey()
 		
 		
 	checkConnection: ->
@@ -14,23 +15,25 @@ class Sync
 	
 	
 	setBasicAuthKey:  =>
-		@basicAuthKey = "Y29kZTRnb29kOlVLMjAxMw=="
-#		jqxhr = $.ajax({ 
-#			url : @API_URL + "authentication?username=" + @username + "&password=" + @password + "&tenantIdentifier=" + @username
-#			type : 'POST'
-#			contentType : "application/json; charset=utf-8"
-#			dataType : 'json'
-#			data : "{}"
-#			cache : false
-#			success : (data, textStatus, jqXHR) => 
-#				@basicAuthKey = data.base64EncodedAuthenticationKey
-#				alert(@basicAuthKey)
-#			error : (jqXHR, textStatus, errorThrown) =>
-#				alert(JSON.stringify jqXHR)
-#		})
+#		@basicAuthKey = "Y29kZTRnb29kOlVLMjAxMw=="
+		jqxhr = $.ajax({ 
+			url : "https://mlite-demo.musoni.eu:8443/mifosng-provider/api/v1/authentication/?username=" + @username + "&password=" + @password #@API_URL + "authentication?username=" + @username + "&password=" + @password + "&tenantIdentifier=" + @username
+			type : 'POST'
+			contentType : "application/json; charset=utf-8"
+			dataType : 'json'
+			crossDomain: true
+			data : "{}"
+			cache : false
+			beforeSend : (xhr) =>
+				xhr.setRequestHeader("X-Mifos-Platform-TenantId", "code4good")
+			success : (data, textStatus, jqXHR) => 
+				@basicAuthKey = data.base64EncodedAuthenticationKey
+				console.log(@basicAuthKey)
+			error : (jqXHR, textStatus, errorThrown) =>
+				console.log(errorThrown)
+				console.log(JSON.stringify jqXHR)
+			})
 
-	
-	
 	executeAjaxRequest: (url, verbType, jsonData, basicAuthKey, successFunction, errorFunction) ->
 		jqxhr = $.ajax({ 
 			url : url
