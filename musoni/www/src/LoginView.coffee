@@ -9,7 +9,7 @@ class LoginView
 		form += UI.getTextInput('password', null )
 		form += UI.nl()
 		form += UI.getLabel( 'password','Password' )
-		form += UI.getTextInput('password', null )
+		form += UI.getPasswordInput('password', null )
 		form += UI.nl()
 		form += UI.getSubmit( 'Log In', 'userLogin' )
 		form += UI.nl()
