@@ -7,7 +7,8 @@ ClientModel = (function(_super) {
   __extends(ClientModel, _super);
 
   function ClientModel(_arg) {
-    this.ClientInformation = _arg.ClientInformation, this.PersonalInformation = _arg.PersonalInformation, this.ClientIdentification = _arg.ClientIdentification, this.BusinessDetails = _arg.BusinessDetails, this.nextOfKin = _arg.nextOfKin, this.certifyIfAccurate = _arg.certifyIfAccurate, this.approveClient = _arg.approveClient;
+    var _ref;
+    _ref = _arg != null ? _arg : {}, this.ClientInformation = _ref.ClientInformation, this.PersonalInformation = _ref.PersonalInformation, this.ClientIdentification = _ref.ClientIdentification, this.BusinessDetails = _ref.BusinessDetails, this.nextOfKin = _ref.nextOfKin, this.certifyIfAccurate = _ref.certifyIfAccurate, this.approveClient = _ref.approveClient;
     _.defaults(this, {
       ClientInformation: {},
       PersonalInformation: {},

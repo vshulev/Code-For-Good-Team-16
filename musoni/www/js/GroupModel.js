@@ -7,7 +7,10 @@ GroupModel = (function(_super) {
   __extends(GroupModel, _super);
 
   function GroupModel(_arg) {
-    this.GroupInformation = _arg.GroupInformation;
+    this.GroupInformation = (_arg != null ? _arg : {}).GroupInformation;
+    _.defaults(this, {
+      GroupInformation: {}
+    });
     _.defaults(this.GroupInformation, {
       "officeId": 0,
       "groupId": 0,

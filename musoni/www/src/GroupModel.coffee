@@ -1,5 +1,9 @@
 class GroupModel extends Model
-    constructor: ( {@GroupInformation} ) ->
+    constructor: ( {@GroupInformation} = {} ) ->
+        _.defaults(this, {
+            GroupInformation: {}
+        } )
+
         _.defaults( @GroupInformation, {
             "officeId": 0,
             "groupId": 0,

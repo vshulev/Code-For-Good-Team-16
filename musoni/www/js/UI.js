@@ -44,6 +44,12 @@ UI = (function() {
     return "<input type='submit' value='" + name + "' onclick='" + functionName + "()' />";
   };
 
+  UI.getBackNext = function(name, functionName) {
+    var disabled;
+    disabled = name === 'Back' ? 'disabled' : '';
+    return "<input type='button' id='" + name + "' value='" + name + "' onclick='" + functionName + "()' " + disabled + " />";
+  };
+
   UI.nl = function() {
     return '<br/>';
   };

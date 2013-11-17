@@ -1,5 +1,5 @@
 class ClientModel extends Model
-    constructor: ({@ClientInformation, @PersonalInformation, @ClientIdentification, @BusinessDetails, @nextOfKin, @certifyIfAccurate, @approveClient}) ->
+    constructor: ({@ClientInformation, @PersonalInformation, @ClientIdentification, @BusinessDetails, @nextOfKin, @certifyIfAccurate, @approveClient} = {}) ->
         _.defaults(this, {
             ClientInformation: {}
             PersonalInformation: {}

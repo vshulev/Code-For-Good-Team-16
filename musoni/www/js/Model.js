@@ -7,9 +7,7 @@ Model = (function() {
     this.reachableCallback = __bind(this.reachableCallback, this);
   }
 
-  Model.prototype.submit = function() {
-    return navigator.network.isReachable("phonegap.com", this.reachableCallback, {});
-  };
+  Model.prototype.submit = function() {};
 
   Model.prototype.reachableCallback = function(reachability) {
     var storeObj;
