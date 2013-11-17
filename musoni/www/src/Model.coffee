@@ -3,7 +3,7 @@ class Model
         # check if the connection is available
         # if it us, use that
         # otherwise, worth offline
-        navigator.network.isReachable("phonegap.com", @reachableCallback, {})
+        #navigator.network.isReachable("phonegap.com", @reachableCallback, {})
 
     reachableCallback: (reachability) =>
         if reachability == NetworkStatus.NOT_REACHABLE

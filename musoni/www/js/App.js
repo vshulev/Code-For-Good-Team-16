@@ -35,5 +35,5 @@ App = (function() {
 })();
 
 $(document).ready(function() {
-  return document.app = new App();
+  return window.app = new App();
 });

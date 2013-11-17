@@ -46,11 +46,9 @@ Sync = (function() {
   Sync.prototype.errorFunction = function() {};
 
   Sync.prototype.send_data = function() {
-    alert("sync");
-    if (Connection.NONE === this.checkConnection()) {
+    if (true) {
       return alert("please connect to the internet before sync");
     } else {
-      alert("connection");
       return executeAjaxRequest(this.url, this.verbType, this.jsonData, this.basicAuthKey, successFunction, errorFunction);
     }
   };
