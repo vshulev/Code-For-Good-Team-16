@@ -33,7 +33,7 @@ class GroupRegistrationView extends FormView
         options = { 'w': 'Weekly', 'f': 'Fortnightly', 'm': 'Monthly'}
         form += UI.getSelection('meetingFrequency', options, @model.meetingFrequency )
         form += UI.nl()
-        form += UI.getSubmit( 'Submit', 'groupRegistrationSubmit' )
+        form += UI.getSubmit( 'Submit', 'RegistrationSubmit' )
         form += UI.nl()
         form += '</div>'
 

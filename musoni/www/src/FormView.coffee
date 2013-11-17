@@ -1,6 +1,6 @@
 class FormView
     constructor: (@model) ->
-            window.ClientRegistrationSubmit = => @submission()
+            window.RegistrationSubmit = => @submission()
             
             window.GoNext = =>
                     if @page < @maxPage
