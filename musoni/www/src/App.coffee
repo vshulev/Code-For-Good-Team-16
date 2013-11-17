@@ -4,7 +4,6 @@ class App
 		@mainRegion = $('#main-region')
 		$('#back-region button').click()
 		@statusStack = []
-		@currentModel = null
 		@show( new OptionsView() )
 
 	show: (view) ->
@@ -12,12 +11,10 @@ class App
 		@statusStack.push(view)
 
 	customerForm: ->
-		@currentModel = new ClientModel()
-		@show( new ClientRegistrationView() )
+		@show( new ClientRegistrationView( new ClientModel() ) )
 
 	groupForm: ->
-		@currentModel = new GroupModel()
-		@show( new GuestFormView() )
+		@show( new GroupRegistrationView( new GroupModel() ) )
 
 	back: ->
 		@statusStack.pop()

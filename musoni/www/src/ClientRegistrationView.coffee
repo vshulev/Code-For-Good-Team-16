@@ -49,9 +49,11 @@ class ClientRegistrationView extends FormView
         form += UI.nl()
         form += '</div>'
         
+        form += '<div class="form-nav">'
         form += UI.getBackNext( 'Back', 'GoBack' )
         form += '<span id="page-c">Page '+@page+' out of '+@maxPage+'</span>'
         form += UI.getBackNext( 'Next', 'GoNext' )
+        form += '</div>'
         form
 
     extractData: =>
@@ -66,7 +68,3 @@ class ClientRegistrationView extends FormView
         @model.PersonalInformation.address=$('#address').val()
         @model.PersonalInformation.town=$('#town').val()
         @model.PersonalInformation.county=$('#county').val()
-        
-
-    
-    

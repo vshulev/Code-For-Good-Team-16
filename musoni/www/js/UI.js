@@ -18,7 +18,7 @@ UI = (function() {
       if (value == null) {
         value = '';
       }
-      return ("<input type='radio' name='" + name + "' id='" + name + "_" + value + "' value='" + value + "' " + selected + "/>") + UI.getLabel(name + '_' + value, display);
+      return ("<input type='radio' name='" + name + "' id='" + name + "_" + value + "' value='" + value + "' " + selected + "/>") + UI.getLabel(name + '_' + value, display, 'radio');
     })).join('');
   };
 
@@ -36,8 +36,11 @@ UI = (function() {
     return ret;
   };
 
-  UI.getLabel = function(id, display) {
-    return "<label for='" + id + "'>" + display + "</label>";
+  UI.getLabel = function(id, display, classname) {
+    if (classname == null) {
+      classname = '';
+    }
+    return "<label for='" + id + "' class='" + classname + "'>" + display + "</label>";
   };
 
   UI.getSubmit = function(name, functionName) {

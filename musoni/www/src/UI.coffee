@@ -7,7 +7,7 @@ class UI
 		_(_(options).map( (display, value) ->
 				selected = if value == checked then "checked" else ""
 				value ?= ''
-				"<input type='radio' name='#{name}' id='#{name}_#{value}' value='#{value}' #{selected}/>" + UI.getLabel( name+'_'+value, display )
+				"<input type='radio' name='#{name}' id='#{name}_#{value}' value='#{value}' #{selected}/>" + UI.getLabel( name+'_'+value, display, 'radio' )
 			)).join( '' )
 		
 	@getSelection: (name, options, selected) ->
@@ -21,8 +21,8 @@ class UI
 		ret
 			
 			
-	@getLabel: (id, display) ->
-		"<label for='#{id}'>#{display}</label>"
+	@getLabel: (id, display, classname='') ->
+		"<label for='#{id}' class='#{classname}'>#{display}</label>"
 
 	@getSubmit: (name, functionName) ->
 		"<input type='submit' value='" + name + "' onclick='" + functionName + "()' />"
