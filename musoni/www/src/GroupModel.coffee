@@ -25,7 +25,7 @@ class GroupModel extends Model
         @GroupInformation
 
     getStoreObject: ->
-        gid: @ClientIdentification.uniqueIDNumber
+        gid: @GroupInformation.groupId
         gname: @GroupInformation.groupName
         formData: @getDataObject()
 
