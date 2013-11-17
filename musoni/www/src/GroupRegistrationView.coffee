@@ -3,12 +3,33 @@ class GroupRegistrationView
 		@group = {}
 		window.groupRegistrationSubmit = => @submission()
 
+		@page = 1
+		@maxPage = 2
+		window.GoNext = =>
+			if @page < @maxPage
+				$('.form-page').hide()
+				@page += 1
+				$('#page-'+@page).show()
+			if @page == @maxPage
+				$('#Next').attr('disabled','disabled');
+			$('#Back').removeAttr('disabled');
+			
+		window.GoBack = =>
+			if @page > 1
+				$('.form-page').hide()
+				@page -= 1
+				$('#page-'+@page).show()
+			if @page == 1
+				$('#Back').attr('disabled','disabled');
+			$('#Next').removeAttr('disabled');
+			
 	submission: ->
 		@extractData()
 		@group.submit()
 	
 	render: =>
-		form = UI.getLabel( 'groupName','Group Name' )
+		form = '<div class="form-page" id="page-1">'
+		form += UI.getLabel( 'groupName','Group Name' )
 		form += UI.getTextInput('groupName', @group.groupName )
 		form += UI.nl()
 		form += UI.getLabel( 'branchName','Branch' )
@@ -22,6 +43,9 @@ class GroupRegistrationView
 		form += UI.getLabel( 'registrationNumber','Registration Number' )
 		form += UI.getTextInput('registrationNumber', @group.registrationNumber)
 		form += UI.nl()
+		form += '</div>'
+		
+		form += '<div class="form-page" id="page-2">'
 		form += UI.getLabel( 'meetingLocation','Meeting Location' )
 		form += UI.getTextInput('meetingLocation', @group.meetingLocation )
 		form += UI.nl()
@@ -32,8 +56,14 @@ class GroupRegistrationView
 		options = { 'w': 'Weekly', 'f': 'Fortnightly', 'm': 'Monthly'}
 		form += UI.getSelection('meetingFrequency', options, @group.meetingFrequency )
 		form += UI.nl()
-		
 		form += UI.getSubmit( 'Submit', 'groupRegistrationSubmit' )
+		form += UI.nl()
+		form += '</div>'
+		form += UI.getBackNext( 'Next', 'GoNext' )
+		form += UI.nl()	
+		form += UI.getBackNext( 'Back', 'GoBack' )
+		form
+
 
 	extractData: ->
 		@group.GroupInformation.groupName=$('#groupName').val()
